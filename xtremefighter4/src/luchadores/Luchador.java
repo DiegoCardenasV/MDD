@@ -6,7 +6,7 @@ public abstract class Luchador {
 	public String nombre;
 	public MovimientoEspecial miMovimiento;
         
-    public String golpear;
+   // public String golpear;
 	abstract public String golpear();//{
 		//return "GOLPE POR DEFECTOOOO";
 		//};

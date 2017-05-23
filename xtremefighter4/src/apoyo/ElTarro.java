@@ -14,6 +14,7 @@ import luchadores.Luchador;
 public class ElTarro extends Luchapoyo{
     Luchador luchador;
     int dmg=25;
+    boolean mesp=false;
     String nombre="y ElTarro";
     public ElTarro(Luchador luchador){
     this.luchador=luchador; 
@@ -22,7 +23,7 @@ public class ElTarro extends Luchapoyo{
      
     @Override
     public String usarMovimientoEspecial(){
-         
+                mesp=true;
 		return luchador.usarMovimientoEspecial()+getPoderapoyo();
 	}
     public String getPoderapoyo(){
@@ -31,7 +32,7 @@ public class ElTarro extends Luchapoyo{
     }
     @Override
     public String golpear(){
-        return this.luchador.golpear;
+        return this.luchador.golpear();
     }
     @Override
     public String patear(){
@@ -43,7 +44,11 @@ public class ElTarro extends Luchapoyo{
     }
     @Override
     public int getdmg(){
-        return luchador.getdmg()+dmg;
+         if(mesp==false){
+            dmg=0;
+            return dmg;
+        }
+        return dmg;
     }
 
 }

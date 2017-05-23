@@ -14,6 +14,7 @@ import luchadores.Luchador;
 public class Nosepeleen extends Luchapoyo{
             Luchador luchador;
             int dmg=30;
+            boolean mesp=false;
     String nombre="Niño No Peleen";
 
     public Nosepeleen(Luchador luchador){
@@ -23,7 +24,7 @@ public class Nosepeleen extends Luchapoyo{
      
             @Override
     public String usarMovimientoEspecial(){
-    
+                mesp=true;
 		return luchador.usarMovimientoEspecial()+getPoderapoyo();
 	}
     public String getPoderapoyo(){
@@ -31,7 +32,7 @@ public class Nosepeleen extends Luchapoyo{
     }
             @Override
       public String golpear(){
-        return this.luchador.golpear;
+        return this.luchador.golpear();
     }
             @Override
     public String patear(){
@@ -43,7 +44,11 @@ public class Nosepeleen extends Luchapoyo{
     }
             @Override
     public int getdmg(){
-        return luchador.getdmg()+dmg;
+         if(mesp==false){
+            dmg=0;
+            return dmg;
+        }
+        return dmg;
     }
  
 

@@ -14,6 +14,7 @@ import luchadores.Luchador;
 public class Illuminatikid extends Luchapoyo {
         Luchador luchador;
         int dmg=40;
+        boolean mesp=false;
     String nombre="Niño Illuminati";
     public Illuminatikid(Luchador luchador){
     this.luchador=luchador;
@@ -22,7 +23,7 @@ public class Illuminatikid extends Luchapoyo {
      
         @Override
     public String usarMovimientoEspecial(){
-               
+                mesp=true;
 		return luchador.usarMovimientoEspecial()+getPoderapoyo();
 	}
     public String getPoderapoyo(){
@@ -30,7 +31,7 @@ public class Illuminatikid extends Luchapoyo {
     }
         @Override
       public String golpear(){
-        return this.luchador.golpear;
+        return this.luchador.golpear();
     }
         @Override
     public String patear(){
@@ -42,7 +43,11 @@ public class Illuminatikid extends Luchapoyo {
     }
         @Override
     public int getdmg(){
-        return luchador.getdmg()+dmg;
+         if(mesp==false){
+            dmg=0;
+            return dmg;
+        }
+        return dmg;
     }
 
   

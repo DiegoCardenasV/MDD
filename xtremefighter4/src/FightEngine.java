@@ -20,7 +20,8 @@ public class FightEngine {
                 String luchadorapoyo1;
 		String accionLuchadorIn;
 		int accionLuchador;
-                int dmg;
+                int dmg=0;
+                String typestr="";
 		String opcionChoroPortenho = new String("1");
 		String opcionMineroWarrior = new String("2");
 		String opcionHalconDeChicureo = new String("3");
@@ -45,32 +46,38 @@ public class FightEngine {
 		if (luchadorPlayer1.equals(opcionChoroPortenho)){
 			player1 = new ChoroPortenho();
 			nuevoMovimiento = new LanzaPoderes();
+                        typestr=nuevoMovimiento.getClass().getSimpleName();
 		}
                 else if (luchadorPlayer1.equals(opcionMineroWarrior)){
 			player1 = new MineroWarrior();
-			nuevoMovimiento = new LanzaPoderes();		
+			nuevoMovimiento = new LanzaPoderes();
+                        typestr=nuevoMovimiento.getClass().getSimpleName();
 		}
                 else if (luchadorPlayer1.equals(opcionHalconDeChicureo)){
 			player1 = new HalconDeChicureo();
 			nuevoMovimiento = new AtacadorRapido();
+                        typestr=nuevoMovimiento.getClass().getSimpleName();
 		}
                 else if (luchadorPlayer1.equals(opcionGorrionDeConchali)){
 			player1 = new GorrionDeConchali();
 			nuevoMovimiento = new AtacadorRapido();
+                        typestr=nuevoMovimiento.getClass().getSimpleName();
 			}
                 else if(luchadorPlayer1.equals(opcionPanchoDelSur)){
 			player1 = new PanchoDelSur();
 			nuevoMovimiento = new Agarrador();
+                        typestr=nuevoMovimiento.getClass().getSimpleName();
 			}
 		
 		player1.miMovimiento = nuevoMovimiento;
+                
                 
 		System.out.println("Selecciona tu luchador de apoyo (6, 7 o 8): 6-El Tarro 7-Niño Illuminati  8-No se peleen");
 		
 		Scanner seleccion2 = new Scanner(System.in);
 		
 		luchadorapoyo1 = seleccion2.nextLine();
-                System.out.println(player1.nombre);
+                //System.out.println(player1.nombre);
                 
                 if (luchadorapoyo1.equals(opcionElTarro)){
 			player1 = new ElTarro(player1);
@@ -98,9 +105,16 @@ public class FightEngine {
 					case 3: System.out.println(player1.saltar());
 							break;
 					case 4: System.out.println(player1.usarMovimientoEspecial());
+                                                if("Lanzapoderes".equals(typestr)){
+                                                    dmg+=50;
+                                                }else if("AtacadorRapido".equals(typestr)){
+                                                    dmg+=75;
+                                                }else if("Agarrador".equals(typestr)){
+                                                    dmg+=100;
+                                                }
 							break;				
 				}
-		dmg=player1.getdmg();
+		dmg+=player1.getdmg();
                 System.out.println(dmg);
 		System.out.println("FIN DEL JUEGO. 2...");
 
