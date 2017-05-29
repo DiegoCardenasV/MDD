@@ -15,6 +15,7 @@ import luchadores.MineroWarrior;
 import luchadores.PanchoDelSur;
 
 public class FightEngine {
+        @SuppressWarnings({"null", "ConvertToStringSwitch"})
 	public FightEngine(){
 		String luchadorPlayer1;
                 String luchadorapoyo1;
@@ -22,14 +23,14 @@ public class FightEngine {
 		int accionLuchador;
                 int dmg=0;
                 String typestr="";
-		String opcionChoroPortenho = new String("1");
-		String opcionMineroWarrior = new String("2");
-		String opcionHalconDeChicureo = new String("3");
-		String opcionGorrionDeConchali= new String("4");
-		String opcionPanchoDelSur = new String("5");
-                String opcionElTarro= new String("6");
-                String opcionIlluminati= new String("7");
-                String opcionNosepeleen= new String("8");
+		String opcionChoroPortenho = "1";
+		String opcionMineroWarrior = "2";
+		String opcionHalconDeChicureo = "3";
+		String opcionGorrionDeConchali= "4";
+		String opcionPanchoDelSur = "5";
+                String opcionElTarro= "6";
+                String opcionIlluminati= "7";
+                String opcionNosepeleen= "8";
 		
 	    System.out.println("Empieza el juego!!!");
 		System.out.println("Selecciona tu luchador (1 o 2): 1-Choro Portenho 2-Minero Warrior  3-Halcon de Chicureo  4-Gorrion de Conchali  5-Pancho del Sur");
@@ -68,7 +69,7 @@ public class FightEngine {
 			nuevoMovimiento = new Agarrador();
                         typestr=nuevoMovimiento.getClass().getSimpleName();
 			}
-		
+		          //System.out.println(typestr);
 		player1.miMovimiento = nuevoMovimiento;
                 
                 
@@ -77,7 +78,7 @@ public class FightEngine {
 		Scanner seleccion2 = new Scanner(System.in);
 		
 		luchadorapoyo1 = seleccion2.nextLine();
-                //System.out.println(player1.nombre);
+                System.out.println(player1.nombre);
                 
                 if (luchadorapoyo1.equals(opcionElTarro)){
 			player1 = new ElTarro(player1);
@@ -114,7 +115,7 @@ public class FightEngine {
                                                 }
 							break;				
 				}
-		dmg+=player1.getdmg();
+		dmg =dmg+ player1.getdmg();
                 System.out.println(dmg);
 		System.out.println("FIN DEL JUEGO. 2...");
 

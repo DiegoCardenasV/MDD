@@ -46,7 +46,7 @@ public class ElTarro extends Luchapoyo{
     public int getdmg(){
          if(mesp==false){
             dmg=0;
-            return dmg;
+            return dmg+luchador.getdmg();
         }
         return dmg;
     }

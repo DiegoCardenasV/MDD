@@ -23,6 +23,7 @@ public class PanchoDelSur extends Luchador{
 
 		return("JOJOI!!!");
 	}
+        @Override
         public int getdmg(){
         return 50;
         }

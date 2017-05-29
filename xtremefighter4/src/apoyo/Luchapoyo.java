@@ -26,4 +26,5 @@ public abstract class Luchapoyo extends Luchador {
 	public String saltar(){
 		return null;
 	}
+  
 }

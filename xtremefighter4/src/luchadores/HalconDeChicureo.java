@@ -23,6 +23,7 @@ public class HalconDeChicureo extends Luchador{
           
 		return("SALTO DEL AVION!!!");
 	}
+        @Override
         public int getdmg(){
         return 50;
         }

@@ -22,6 +22,7 @@ public class MineroWarrior extends Luchador{
 
 		return("SALTO EXPLOSIVOOOOO!!!");
 	}
+        @Override
         public int getdmg(){
         return 50;
         }
