@@ -6,16 +6,13 @@ public abstract class Luchador {
 	public String nombre;
 	public MovimientoEspecial miMovimiento;
         
-   // public String golpear;
-	abstract public String golpear();//{
-		//return "GOLPE POR DEFECTOOOO";
-		//};
-	abstract public String patear();//{
-		//return "PATADA POR DEFECTOOO!";
-		//}
-	abstract public String saltar();//{
-		//return "SALTO POR DEFECTOOOO";
-		//}
+   
+	abstract public String golpear();
+		
+	abstract public String patear();
+		
+	abstract public String saltar();
+		
 	public String usarMovimientoEspecial(){
 		return miMovimiento.ejecutarMovimientoEspecial();
 	}

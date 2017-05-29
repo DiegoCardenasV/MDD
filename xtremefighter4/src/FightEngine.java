@@ -22,6 +22,7 @@ public class FightEngine {
 		String accionLuchadorIn;
 		int accionLuchador;
                 int dmg=0;
+                boolean ended=false;
                 String typestr="";
 		String opcionChoroPortenho = "1";
 		String opcionMineroWarrior = "2";
@@ -72,13 +73,13 @@ public class FightEngine {
 		          //System.out.println(typestr);
 		player1.miMovimiento = nuevoMovimiento;
                 
-                
-		System.out.println("Selecciona tu luchador de apoyo (6, 7 o 8): 6-El Tarro 7-Niño Illuminati  8-No se peleen");
+            while(ended==false){    
+		System.out.println("Selecciona tu luchador de apoyo (6, 7 o 8): 6-El Tarro 7-Niño Illuminati  8-No se peleen 0-Comience la Batalla!");
 		
 		Scanner seleccion2 = new Scanner(System.in);
 		
 		luchadorapoyo1 = seleccion2.nextLine();
-                System.out.println(player1.nombre);
+                //System.out.println(player1.nombre);
                 
                 if (luchadorapoyo1.equals(opcionElTarro)){
 			player1 = new ElTarro(player1);
@@ -89,7 +90,10 @@ public class FightEngine {
                 else if(luchadorapoyo1.equals(opcionNosepeleen)){
                         player1 = new Nosepeleen(player1);
                 }
-		
+                else if(luchadorapoyo1.equals("0")){
+                        ended=true;
+                }
+            }
                 
 		System.out.println(" inicia la batalla!");
 
@@ -106,17 +110,20 @@ public class FightEngine {
 					case 3: System.out.println(player1.saltar());
 							break;
 					case 4: System.out.println(player1.usarMovimientoEspecial());
-                                                if("Lanzapoderes".equals(typestr)){
+                                                if("LanzaPoderes".equals(typestr)){
                                                     dmg+=50;
+                                                    System.out.println("+"+dmg);
                                                 }else if("AtacadorRapido".equals(typestr)){
                                                     dmg+=75;
+                                                    System.out.println("+"+dmg);
                                                 }else if("Agarrador".equals(typestr)){
                                                     dmg+=100;
+                                                    System.out.println("+"+dmg);
                                                 }
 							break;				
 				}
-		dmg =dmg+ player1.getdmg();
-                System.out.println(dmg);
+		dmg =dmg+player1.getdmg();
+                System.out.println("Total DMG: "+dmg);
 		System.out.println("FIN DEL JUEGO. 2...");
 
 	}

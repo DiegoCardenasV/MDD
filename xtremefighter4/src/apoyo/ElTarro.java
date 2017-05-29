@@ -45,10 +45,12 @@ public class ElTarro extends Luchapoyo{
     @Override
     public int getdmg(){
          if(mesp==false){
-            dmg=0;
-            return dmg+luchador.getdmg();
+            
+            //dmg=0;
+            return luchador.getdmg();
         }
-        return dmg;
+        System.out.println("+"+dmg);
+        return this.dmg+luchador.getdmg();
     }
 
 }
